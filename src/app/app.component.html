@@ -1,0 +1,31 @@
+<div class = "container">
+<div class="well" style="margin-bottom: 0px;">List of countries</div>
+</div>
+<h4 id="active"> All</h4>
+<div class = "container">
+<table class="table table-striped">
+        <thead>
+            <tr>
+                
+                <th>Country Code</th>
+                <th>Country Name</th>
+                <th>Capital</th>
+                <th>Languages</th>
+            </tr>
+        </thead>
+         
+        <tbody class="table table-stripped">
+            <tr *ngFor="let employee of employees | paginate: { itemsPerPage: 20, currentPage: p}">
+                
+              <td>{{employee.cca2}}</td>
+              <td>{{employee.name.common}}</td>
+              <td>{{employee.capital}}</td>
+              <td>{{printme(employee.languages)}}</td>
+            </tr>
+            </tbody>
+
+        </table>
+        
+
+        <pagination-controls class="page" (pageChange)="p = $event"></pagination-controls>
+        </div>
